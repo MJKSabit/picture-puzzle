@@ -13,7 +13,7 @@ Create a `.env`file in the base directory. Add the mentioned variables in the fi
     
     CONTEST_STARTED = <set if the contest has started>
     CONTEST_ENDED = <set if the contest has ended>
-    SHOMOBAY_SHOMITI = <set Shomobay to true or false>
+    SHOMOBAY_SHOMITI = <true or false, run shomiti detector>
     
     MEAN = <mean value>
     DEVIATION = <deviation value>
@@ -26,7 +26,7 @@ Create a `.env`file in the base directory. Add the mentioned variables in the fi
     EMISSION00 = <emission00 value, +time(t)|-cheat(t)>
     EMISSION01 = <emission01 value,  -time(t)|-cheat(t)>
     THRESHOLD = <threshold value>
-    START_PROB = <strating probability>
+    START_PROB = <starting probability>
     
     DB_HOST = <database host address>
     DB_PORT = <database connection port>
@@ -35,9 +35,9 @@ Create a `.env`file in the base directory. Add the mentioned variables in the fi
     DB_NAME = <database name>
     
     MEME_WRONG = <after every MEME_WRONG unsuccessful submissions failure meme is shown>
-    SHOW_MEME = <true or false>
-    SHOW_HACK = <true or false>
-    SHOW_SHOMITI = <true or false>
+    SHOW_MEME = <true or false, show meme>
+    SHOW_HACK = <true or false, show hack>
+    SHOW_SHOMITI = <true or false, show shomiti detection result>
 
     
     
