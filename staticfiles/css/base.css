@@ -1,26 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus&family=Rancho&display=swap');
+
+a,
+a:focus,
+a:hover {
+  color: rgb(30, 0, 54);
+}
+
+html,
+body {
+  height: 100%;
+  background-color: #fcfff6;
+  font-family: 'Gentium Book Plus', serif;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.my-navbar {
+  background-color: #1C8957;
+  font-size: large;
+}
+
 .mybutton {
   color: white;
-  background-color: #290f5c;
-  border-color: #4C0070;
+  background-color: #1C8957;
+  border-color: #0f6652;
 }
 
 .mybutton:hover {
   color: white;
-  background-color: rgb(0, 0, 54);
+  background-color: #16563e;
 }
 
 
-.mybutton-light {
-  color: #4C0070;
-  background-color: white;
-  border-color: #4C0070;
+.my-table-head {
+  background-color: rgba(28, 137, 87, 0.7)!important;
 }
 
-.mybutton-light:hover {
-  color: white;
-  background-color: #4C0070;
-}
-
-.shomobay {
-  background-color: #c89595;
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
 }
