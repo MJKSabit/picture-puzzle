@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus&family=Rancho&display=swap');
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: rgb(30, 0, 54);
+}
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  background-color: #fcfff6;
+  font-family: 'Gentium Book Plus', serif;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+body::-webkit-scrollbar {
+  display: none;  /* Hide scrollbar for Chrome, Safari and Opera */
+}
+
+.my-navbar {
+  background-color: #1C8957;
+  font-size: large;
+}
+
+
+/*
+ * Buttons
+ */
+
+
+.mybutton {
+  color: white;
+  background-color: #1C8957;
+  border-color: #0f6652;
+}
+
+.mybutton:hover {
+  color: white;
+  /*background-color: #0f6652;*/
+  /*background-color: #1C8957;*/
+  background-color: #16563e;
+}
+
+
+.my-table-head {
+  background-color: rgba(28, 137, 87, 0.7)!important;
+}
+
+/*
+ * shomobay
+ */
+
+
+/*
+ * footer
+ */
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}

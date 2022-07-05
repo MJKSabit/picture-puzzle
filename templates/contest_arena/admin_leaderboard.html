@@ -1,0 +1,100 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>BUET CSE FEST 2022 Picture Puzzle</title>
+
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    </head>
+
+    <body class="text-center">
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top my-navbar">
+                <a class="navbar-brand" href="{% url 'home' %}">Picture Puzzle</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link disabled">Leaderboard<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'puzzle' user_level %}">Play</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link disabled px-3">Welcome, {{ user.username }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="container d-flex mt-5 w-100 p-3 mx-auto flex-column">
+            <main class="mt-5" role="main">
+                <table class="mt-3 table table-striped">
+                    <thead class="my-table-head">
+                    <tr>
+                        <th scope="col">Level</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Batch</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for p in rank_list %}
+                            <tr {% if p.username == user.username %}class="font-weight-bold"{% endif %}
+                                {% if SHOMOBAY_SHOMITI %}style="background-color: rgba(255, 0, 0, {{p.participant.max_weight}});"{% endif %}>
+                                <th scope="row">{{ p.participant.curr_level }}</th>
+                                <td>{{ p.username }}</td>
+                                <td>{{ p.participant.batch }}</td>
+                            </tr>
+
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </main>
+
+            <!-------------------------------------------------- pageinator  -------------------------------------------->
+
+            {% if rank_list.has_other_pages %}
+                <div class="container">
+                    <div class="justify-content-center btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group mr-2 rounded" role="group" aria-label="First group">
+                            {% if rank_list.has_previous %}
+                                <a href="?page={{ rank_list.previous_page_number }}" type="button" class="btn mybutton">&laquo;</a>
+                            {% else %}
+                                <a type="button" class="btn mybutton disabled">&laquo;</a>
+                            {% endif %}
+
+                            {% for i in rank_list.paginator.page_range %}
+                                {% if rank_list.number == i %}
+                                    <a type="button" class="btn mybutton disabled">{{ i }}<span> <span class="sr-only">(current)</span></span></a>
+                                {% else %}
+                                    <a href="?page={{ i }}" type="button" class="btn mybutton">{{ i }}</a>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if rank_list.has_next %}
+                                <a href="?page={{ rank_list.next_page_number }}" type="button" class="btn mybutton">&raquo;</a>
+                            {% else %}
+                                <a type="button" class="btn mybutton disabled"><span>&raquo;</span></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        {% include 'base/footer.html' %}
+        <script src="{% static 'js/jquery-3.5.1.slim.min.js' %}" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    </body>
+</html>

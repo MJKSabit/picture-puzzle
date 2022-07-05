@@ -1,0 +1,122 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>BUET CSE FEST 2022 Picture Puzzle</title>
+
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    </head>
+
+    <body class="text-center">
+
+{#    ----------------------------------------------- NAVBAR START ------------------------------------------------#}
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top my-navbar">
+                <a class="navbar-brand" href="{% url 'home' %}">Picture Puzzle</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'leaderboard' %}">Leaderboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active disabled" href="#">Play<span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link disabled px-3">Welcome, {{ user.username }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+{#    ----------------------------------------------- NAVBAR END ------------------------------------------------#}
+
+        <div class="container d-flex mt-5 w-100 p-3 mx-auto flex-column">
+            {% if meme %}
+                <!-- Button trigger meme modal -->
+                <button id="memeBtn" type="button" class="btn" data-toggle="modal" data-target="#memeModal" hidden></button>
+                <button id="playAudio" onclick="play()" hidden></button>
+
+                <!-- Meme -->
+                <div class="modal fade" id="memeModal" tabindex="-1" role="dialog" aria-labelledby="memeModalTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">
+                                    {% if meme.meme_type == 1 %}
+                                        Kudos!! Puzzle solved, level up!
+                                    {% else %}
+                                        Try Again!
+                                    {% endif %}
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+{#                                <img class="pr-5 pl-3 pb-3" src="{{ meme.test_link }}" alt="{{ meme.text }}" style="max-height: 400px; max-width: 400px;">#}
+                                <img class="pr-5 pl-3 pb-3" src="{{ meme.get_image }}" alt="{{ meme.text }}" style="max-height: 400px; max-width: 400px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+
+
+
+            <main role="main" class="py-5">
+                {% if msg %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        {{ msg }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endif %}
+
+                {% if puzzle %}
+                    {% if puzzle.title %}<h2 class="mt-5">{{ puzzle.title }}</h2>{% endif %}
+{#                    <img class="mt-4" src="{{ puzzle.info_link }}" alt="{{puzzle.title}}" style="max-height: 400px; max-width: 400px;">#}
+                    <img class="mt-4" src="{{ puzzle.get_image }}" alt="{{puzzle.title}}" style="max-height: 400px; max-width: 400px;">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="container mt-5 mb-5" style="max-width: 400px">
+                            {{ form.ans }}
+                            <button class="btn btn-lg mybutton btn-block mt-3" type="submit">Submit</button>
+                        </div>
+                    </form>
+                {% endif %}
+            </main>
+        </div>
+        {% include 'base/footer.html' %}
+        <script src="{% static 'js/jquery-3.5.1.slim.min.js' %}" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        {% if meme %}
+            <script>
+                var audio = new Audio('{{ meme.get_sound }}');
+                window.onload = function(){
+                    document.getElementById('memeBtn').click();
+                    document.getElementById('playAudio').click();
+                };
+
+                function play() {
+                    audio.play();
+                }
+                $('#memeModal').on('hidden.bs.modal', function () {
+                    audio.pause();
+                })
+            </script>
+        {% endif %}
+    </body>
+</html>
