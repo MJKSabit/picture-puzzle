@@ -8,7 +8,6 @@
         <title>Hackerman | BUET CSE FEST 2022 Picture Puzzle</title>
 
         <link rel="icon" href="{% static 'images/favicon.png' %}">
-{#        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">#}
         <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
         <link href="{% static 'css/base.css' %}" rel="stylesheet">
     </head>
@@ -45,8 +44,7 @@
 
         <div class="container d-flex mt-5 w-100 p-3 mx-auto flex-column">
             <main role="main" class="py-5">
-                <h1>Why you hack me :(</h1>
-                <h2 class="mt-5">{{ random_quote }}</h2>
+                <h1 class="mt-5">{{ random_quote }}</h1>
                 {% if random_image %}
 {#                    <img class="mt-4" src="{{ random_image.test_link }}" alt="meme" style="max-height: 400px; max-width: 400px;">#}
                     <img class="mt-4" src="{{ random_image.get_image }}" alt="meme" style="max-height: 400px; max-width: 400px;">

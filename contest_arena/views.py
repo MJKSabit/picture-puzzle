@@ -132,14 +132,13 @@ def hack(request):
 @login_required(login_url='login')
 def banned(request):
     if not request.user.participant.disabled:
-        redirect('home')
+        return redirect('home')
 
     to_frontend = {
         "user_active": request.user.is_authenticated,
         "user_level": request.user.participant.curr_level,
         "user": request.user,
         "puzzle": None,
-        "msg": "You are banned from the contest. Please contact the contest administrator for more information."
     }
     return render(request, 'contest_arena/banned.html', to_frontend)
 
@@ -215,7 +214,7 @@ def load_next_puzzle(request, pk):
                 except IndexError:
                     to_frontend['meme'] = None
         else:
-            redirect("hackerman")
+            return redirect("hackerman")
     elif request.method == "POST":
         # if the submitted answer is correct, then increase the level of participant
         # show success message
