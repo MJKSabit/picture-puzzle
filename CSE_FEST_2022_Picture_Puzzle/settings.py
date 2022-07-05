@@ -28,17 +28,20 @@ if os.path.isfile(dot_env_path):
     load_dotenv(dot_env_path)
 
 """-------------------------------------------------- env variables start -----------------------------------------"""
+SERVER = True
+DEBUG = True
+SECRET_KEY = "h^z13$qr_s_wd65@gnj7a=xs7t05$w7q8!x_8zsld#"
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+CONTEST_STARTED = True
+CONTEST_ENDED = False
 
-SERVER = (os.getenv('SERVER') == 'True')
-DEBUG = (os.getenv('DEBUG') == 'True')
-LEADERBOARD_PAGE = 10
-CONTEST_STARTED = (os.getenv('CONTEST_STARTED') == 'True')
-CONTEST_ENDED = (os.getenv('CONTEST_ENDED') == 'True')
 
-SHOMOBAY_SHOMITI = (os.getenv('SHOMOBAY_SHOMITI') == 'True')
-SHOW_SHOMITI = (os.getenv('SHOW_SHOMITI') == 'True')
+SHOW_MEME = True
+SHOW_HACK = True
+
+
+SHOMOBAY_SHOMITI = True
+SHOW_SHOMITI = True
 MEAN = 0.5
 DEVIATION = 2
 SPREAD = 60
@@ -52,8 +55,7 @@ EMISSION01 = 0.4       # -time(t)|-cheat(t)
 THRESHOLD = 0.7
 START_PROB = 0.2
 
-SHOW_HACK = (os.getenv('SHOW_HACK') == 'True')
-SHOW_MEME = (os.getenv('SHOW_MEME') == 'True')
+LEADERBOARD_PAGE = 10
 MEME_WRONG = 5
 
 """-------------------------------------------------- env variables end -------------------------------------------"""
