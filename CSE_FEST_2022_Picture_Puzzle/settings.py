@@ -27,7 +27,7 @@ if os.path.isfile(dot_env_path):
     load_dotenv(dot_env_path)
 
 """-------------------------------------------------- env variables start -----------------------------------------"""
-SERVER = False
+SERVER = True
 DEBUG = not SERVER
 SECRET_KEY = "h^z13$qr_s_wd65@gnj7a=xs7t05$w7q8!x_8zsld#"
 
