@@ -33,30 +33,28 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 SERVER = (os.getenv('SERVER') == 'True')
 DEBUG = (os.getenv('DEBUG') == 'True')
-LEADERBOARD_PAGE = int(os.getenv('LEADERBOARD_PAGE'))
+LEADERBOARD_PAGE = 10
 CONTEST_STARTED = (os.getenv('CONTEST_STARTED') == 'True')
 CONTEST_ENDED = (os.getenv('CONTEST_ENDED') == 'True')
 
 SHOMOBAY_SHOMITI = (os.getenv('SHOMOBAY_SHOMITI') == 'True')
-MEAN = float(os.getenv('MEAN'))
-DEVIATION = float(os.getenv('DEVIATION'))
-SPREAD = float(os.getenv('SPREAD'))
-SCALE = float(os.getenv('SCALE'))
-THRESHOLD = float(os.getenv('THRESHOLD'))
-START_PROB = float(os.getenv('START_PROB'))
+SHOW_SHOMITI = (os.getenv('SHOW_SHOMITI') == 'True')
+MEAN = 0.5
+DEVIATION = 2
+SPREAD = 60
+SCALE = 0.9
+TRANSITION00 = 0.8     # -cheat(t+1)|-cheat(t)
+TRANSITION01 = 0.1     # -cheat(t+1)|+cheat(t)
+TRANSITION10 = 0.2     # +cheat(t+1)|-cheat(t)
+TRANSITION11 = 0.9     # +cheat(t+1)|+cheat(t)
+EMISSION00 = 0.6       # +time(t)|-cheat(t)
+EMISSION01 = 0.4       # -time(t)|-cheat(t)
+THRESHOLD = 0.7
+START_PROB = 0.2
 
-TRANSITION00 = float(os.getenv('TRANSITION00'))  # -cheat(t+1)|-cheat(t)
-TRANSITION01 = float(os.getenv('TRANSITION01'))  # -cheat(t+1)|+cheat(t)
-TRANSITION10 = float(os.getenv('TRANSITION10'))  # +cheat(t+1)|-cheat(t)
-TRANSITION11 = float(os.getenv('TRANSITION11'))  # +cheat(t+1)|+cheat(t)
-
-EMISSION00 = float(os.getenv('EMISSION00'))  # +time(t)|-cheat(t)
-EMISSION01 = float(os.getenv('EMISSION01'))  # -time(t)|-cheat(t)
-
-MEME_WRONG = int(os.getenv('MEME_WRONG'))
 SHOW_HACK = (os.getenv('SHOW_HACK') == 'True')
 SHOW_MEME = (os.getenv('SHOW_MEME') == 'True')
-SHOW_SHOMITI = (os.getenv('SHOW_SHOMITI') == 'True')
+MEME_WRONG = 5
 
 """-------------------------------------------------- env variables end -------------------------------------------"""
 ALLOWED_HOSTS = ['ppuzzle.herokuapp.com', '127.0.0.1']
