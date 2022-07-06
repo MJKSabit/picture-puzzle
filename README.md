@@ -1,3 +1,14 @@
+## Database Stuff
+```sql
+CREATE DATABASE db_name
+CHARACTER SET charset_name
+COLLATE collation_name
+
+ALTER DATABASE db_name
+CHARACTER SET charset_name
+COLLATE collation_name
+```
+
 
 ## Picture Puzzle: BUET CSE FEST 2022  
 This repository contains the source code of Picture Puzzle Website for BUET CSE FEST 2022.  

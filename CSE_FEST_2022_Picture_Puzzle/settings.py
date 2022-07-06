@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-from pathlib import Path
 import os
 from pathlib import Path
 
@@ -28,7 +27,7 @@ if os.path.isfile(dot_env_path):
 
 """-------------------------------------------------- env variables start -----------------------------------------"""
 SERVER = True
-DEBUG = not SERVER
+DEBUG = True
 SECRET_KEY = "h^z13$qr_s_wd65@gnj7a=xs7t05$w7q8!x_8zsld#"
 
 CONTEST_STARTED = True
@@ -68,18 +67,18 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+
     'user',
     'contest_arena',
     'shomobay_shomiti_detector',
     'crispy_forms',
-    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
