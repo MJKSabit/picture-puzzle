@@ -21,10 +21,12 @@ def home(request):
         "user": request.user,
     }
     if request.user.is_authenticated:
-        to_frontend["user_level"] = request.user.participant.curr_level
-
-    # print(to_frontend["user_active"])
-    # print(to_frontend["user"])
+        try:
+            to_frontend["user_level"] = request.user.participant.curr_level
+        except Participant.DoesNotExist:
+            to_frontend["user_level"] = 0
+    else:
+        to_frontend["user_level"] = 0
 
     return render(request, 'contest_arena/home.html', to_frontend)
 
@@ -60,12 +62,19 @@ def view_leaderboard_page(request):
         "user_active": request.user.is_authenticated,
         "user": request.user,
         "rank_list": rank_list,
-        "user_level": request.user.participant.curr_level if request.user.is_authenticated else None,
         "SHOMOBAY_SHOMITI": settings.SHOMOBAY_SHOMITI,
         "SHOW_SHOMITI": settings.SHOW_SHOMITI,
         "THRESHOLD": settings.THRESHOLD,
         "showShomitiUser": request.session['showShomitiUser'] if request.session.has_key('showShomitiUser') else False,
     }
+
+    if request.user.is_authenticated:
+        try:
+            to_frontend["user_level"] = request.user.participant.curr_level
+        except Participant.DoesNotExist:
+            to_frontend["user_level"] = 0
+    else:
+        to_frontend["user_level"] = 0
 
     request.session.delete('showShomitiUser')
     return render(request, 'contest_arena/leaderboard.html', to_frontend)
@@ -94,10 +103,17 @@ def view_admin_leaderboard_page(request):
         "user_active": request.user.is_authenticated,
         "user": request.user,
         "rank_list": rank_list,
-        "user_level": request.user.participant.curr_level if request.user.is_authenticated else None,
         "SHOMOBAY_SHOMITI": settings.SHOMOBAY_SHOMITI,
         "THRESHOLD": settings.THRESHOLD,
     }
+
+    if request.user.is_authenticated:
+        try:
+            to_frontend["user_level"] = request.user.participant.curr_level
+        except Participant.DoesNotExist:
+            to_frontend["user_level"] = 0
+    else:
+        to_frontend["user_level"] = 0
 
     return render(request, 'contest_arena/admin_leaderboard.html', to_frontend)
 
@@ -107,8 +123,14 @@ def hack(request):
     to_frontend = {
         "user_active": request.user.is_authenticated,
         "user": request.user,
-        "user_level": request.user.participant.curr_level,
     }
+    if request.user.is_authenticated:
+        try:
+            to_frontend["user_level"] = request.user.participant.curr_level
+        except Participant.DoesNotExist:
+            to_frontend["user_level"] = 0
+    else:
+        to_frontend["user_level"] = 0
 
     if HackerManImage.objects.count() == 0 or AlumniHackermanQuote.objects.count() == 0 or CurrentStudentHackerQuote.objects.count() == 0:
         return render(request, 'contest_arena/hacker.html', to_frontend)
@@ -136,16 +158,27 @@ def banned(request):
 
     to_frontend = {
         "user_active": request.user.is_authenticated,
-        "user_level": request.user.participant.curr_level,
         "user": request.user,
         "puzzle": None,
-        "msg": "আমি অনেক ভালো"
     }
+    if request.user.is_authenticated:
+        try:
+            to_frontend["user_level"] = request.user.participant.curr_level
+        except Participant.DoesNotExist:
+            to_frontend["user_level"] = 0
+    else:
+        to_frontend["user_level"] = 0
+
     return render(request, 'contest_arena/banned.html', to_frontend)
 
 
 @login_required(login_url='login')
 def load_next_puzzle(request, pk):
+    try:
+        request.user.participant.curr_level
+    except Participant.DoesNotExist:
+        return redirect('home')
+
     if request.user.participant.disabled and settings.SHOMOBAY_SHOMITI:
         return redirect('banned')
 
