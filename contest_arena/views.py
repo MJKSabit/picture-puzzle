@@ -58,6 +58,8 @@ def view_leaderboard_page(request):
     for p in rank_list:
         p.participant.max_weight = max(0, p.participant.max_weight - settings.THRESHOLD) / settings.THRESHOLD
 
+
+
     to_frontend = {
         "user_active": request.user.is_authenticated,
         "user": request.user,
@@ -67,6 +69,12 @@ def view_leaderboard_page(request):
         "THRESHOLD": settings.THRESHOLD,
         "showShomitiUser": request.session['showShomitiUser'] if request.session.has_key('showShomitiUser') else False,
     }
+
+    """ ----------------------------------------------- pagination start --------------------------------------------"""
+    if rank_list.has_other_pages:
+        start = math.floor((rank_list.number-1)/5)*5
+        to_frontend['page_range'] = rank_list.paginator.page_range[start:start + 5]
+    """ ----------------------------------------------- pagination end ----------------------------------------------"""
 
     if request.user.is_authenticated:
         try:
@@ -106,6 +114,13 @@ def view_admin_leaderboard_page(request):
         "SHOMOBAY_SHOMITI": settings.SHOMOBAY_SHOMITI,
         "THRESHOLD": settings.THRESHOLD,
     }
+
+
+    """ ----------------------------------------------- pagination start --------------------------------------------"""
+    if rank_list.has_other_pages:
+        start = math.floor((rank_list.number-1)/5)*5
+        to_frontend['page_range'] = rank_list.paginator.page_range[start:start + 5]
+    """ ----------------------------------------------- pagination end ----------------------------------------------"""
 
     if request.user.is_authenticated:
         try:

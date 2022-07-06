@@ -105,7 +105,7 @@
                                 <a type="button" class="btn mybutton disabled">&laquo;</a>
                             {% endif %}
 
-                            {% for i in rank_list.paginator.page_range %}
+                            {% for i in page_range %}
                                 {% if rank_list.number == i %}
                                     <a type="button" class="btn mybutton disabled">{{ i }}<span> <span class="sr-only">(current)</span></span></a>
                                 {% else %}
