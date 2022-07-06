@@ -139,6 +139,7 @@ def banned(request):
         "user_level": request.user.participant.curr_level,
         "user": request.user,
         "puzzle": None,
+        "msg": "আমি অনেক ভালো"
     }
     return render(request, 'contest_arena/banned.html', to_frontend)
 
@@ -160,6 +161,7 @@ def load_next_puzzle(request, pk):
             return redirect('hackerman')
         else:
             return HttpResponseNotFound("You can't solve this now!")
+
 
     form = PuzzleAnsForm()
     to_frontend = {
@@ -188,7 +190,9 @@ def load_next_puzzle(request, pk):
         if request.session.has_key('var'):
             var = request.session['var']
 
-        if var == 1:
+        if var == 0:
+            pass
+        elif var == 1:
             to_frontend['msg'] = "Wrong answer! Please try again"
 
             if settings.SHOW_MEME:
