@@ -46,7 +46,7 @@ class Meme(models.Model):
     sound = models.FileField(upload_to=get_meme_sound_upload_path, default=None, blank=True, null=True)
     text = models.TextField(default=None, blank=True, null=True)
     meme_for = models.IntegerField(default=0, help_text="All = 0, Alum = 1, Student = 2")
-    meme_type = models.IntegerField(default=-1, help_text="Fail = 0 & Success = 1")
+    meme_type = models.IntegerField(default=-1, help_text="Fail = 0 & Success = 1 & Wait = 2")
     test_link = models.URLField(null=True, blank=True)
 
     def __str__(self):

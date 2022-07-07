@@ -230,6 +230,14 @@ def load_next_puzzle(request, pk):
         puzzle = Puzzle.objects.filter(level=request.user.participant.curr_level, visible=True)
         if not puzzle:
             to_frontend['msg'] = "You have completed all currently available levels. Please wait for more"
+            if settings.SHOW_MEME:
+                # load meme
+                try:
+                    to_frontend['meme'] = random.choice(
+                        Meme.objects.filter(Q(meme_for=request.user.participant.acc_type) | Q(meme_for=0),
+                                            meme_type=2))
+                except IndexError:
+                    to_frontend['meme'] = None
         else:
             to_frontend['puzzle'] = puzzle.first()
 
