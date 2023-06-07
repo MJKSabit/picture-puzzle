@@ -17,8 +17,9 @@ db.sqlite3
 .idea/**/gradle.xml
 .idea/**/libraries
 *.iws /out/
-venv/
+.venv/
 media/
 desktop.ini
 playground.py
 staticfiles/
+.env
