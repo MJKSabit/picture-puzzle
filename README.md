@@ -57,10 +57,10 @@ Create a `.env` file in the base directory. Add the mentioned variables in the f
   
 
   
-## How To Run  
-1. Clone this project  
-2. Create a virtual environment in the cloned folder by `python -m venv .venv` in terminal and activate it 
+## How To Run
+1. Clone this project
+2. Create a virtual environment in the cloned folder by `python -m venv .venv` in terminal and activate it
 3. Install requirements by `pip install -r requirements.txt`  
 4. Make sure you have PostGRE SQL Database (Local / Remote)
-5. To create the database, run `python manage.py makemigrations`, `python manage.py makemigrations contest_arena` and `python manage.py migrate`, `python manage.py migrate contest_arena` 
+5. To create the database, run `python manage.py makemigrations`, `python manage.py makemigrations contest_arena` and `python manage.py migrate`, `python manage.py migrate contest_arena`
 6. Run the server by `python manage.py runserver`
