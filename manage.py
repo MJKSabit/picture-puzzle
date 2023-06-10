@@ -6,7 +6,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'CSE_FEST_2022_Picture_Puzzle.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'CSE_FEST_2023_Picture_Puzzle.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
