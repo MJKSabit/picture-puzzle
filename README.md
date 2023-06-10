@@ -14,7 +14,7 @@ COLLATE collation_name
 This repository contains the source code of Picture Puzzle Website for BUET CSE FEST 2022.  
   
 ## Project Configuration  
-Create a `.env`file in the base directory. Add the mentioned variables in the file  
+Create a `.env` file in the base directory. Add the mentioned variables in the file  
 
     WEB_CONCURRENCY= <number of web concurrency>
     SERVER = <if the code is in production>
@@ -59,8 +59,8 @@ Create a `.env`file in the base directory. Add the mentioned variables in the fi
   
 ## How To Run  
 1. Clone this project  
-2. Create a virtual environment in the cloned folder by `python3 -m venv picture_puzzle` in terminal and activate it  
+2. Create a virtual environment in the cloned folder by `python -m venv .venv` in terminal and activate it 
 3. Install requirements by `pip install -r requirements.txt`  
-4. Make sure you have MySQL installed in your system.
-5. To create the database, run `python3 manage.py makemigrations` and `python3 manage.py migrate`  
-6. Run the server by `python3 manage.py runserver`
+4. Make sure you have PostGRE SQL Database (Local / Remote)
+5. To create the database, run `python manage.py makemigrations`, `python manage.py makemigrations contest_arena` and `python manage.py migrate`, `python manage.py migrate contest_arena` 
+6. Run the server by `python manage.py runserver`
