@@ -42,8 +42,8 @@ def get_hackerman_image_upload_path(instance, name):
 # --------------------------------------------------------------------------->>> Models start <<<----------------------
 
 class Meme(models.Model):
-    image = models.ImageField(upload_to=get_meme_image_upload_path)
-    sound = models.FileField(upload_to=get_meme_sound_upload_path, default=None, blank=True, null=True)
+    image = models.URLField(blank=True, null=True)
+    sound = models.URLField(blank=True, null=True, default=None)
     text = models.TextField(default=None, blank=True, null=True)
     meme_for = models.IntegerField(default=0, help_text="All = 0, Alum = 1, Student = 2")
     meme_type = models.IntegerField(default=-1, help_text="Fail = 0 & Success = 1 & Wait = 2")
@@ -53,14 +53,10 @@ class Meme(models.Model):
         return self.text
 
     def get_image(self):
-        if self.image and hasattr(self.image, 'url'):
-            return self.image.url
-        return None
+        return self.image
 
     def get_sound(self):
-        if self.sound and hasattr(self.sound, 'url'):
-            return self.sound.url
-        return None
+        return self.sound
 
     class META:
         verbose_name_plural = "Memes"
@@ -71,7 +67,7 @@ class Puzzle(models.Model):
     info = models.CharField(null=True, blank=True, max_length=300)
     info_link = models.URLField(null=True, blank=True)
     title = models.CharField(max_length=100, null=True, blank=True)
-    image = models.FileField(upload_to=get_puzzle_upload_path, null=True)
+    image = models.URLField(blank=True, null=True)
     ans = models.CharField(null=False, max_length=50)
     visible = models.BooleanField(default=False)
 
@@ -82,13 +78,11 @@ class Puzzle(models.Model):
         return self.ans
 
     def get_image(self):
-        if self.image and hasattr(self.image, 'url'):
-            return self.image.url
-        return None
+        return self.image
 
     def img_show(self):  # receives the instance as an argument
         return mark_safe('<img src="{thumb}" width="200" height="150" />'.format(
-            thumb=self.image.url,
+            thumb=self.image,
         ))
 
     img_show.allow_tags = True
@@ -96,18 +90,16 @@ class Puzzle(models.Model):
 
 
 class HackerManImage(models.Model):
-    image = models.ImageField(upload_to=get_hackerman_image_upload_path)
+    image = models.URLField(blank=True, null=True)
     test_link = models.URLField(null=True, blank=True)
     image_for = models.IntegerField(default=0, help_text="All = 0, Alum = 1, Student = 2")
 
     def get_image(self):
-        if self.image and hasattr(self.image, 'url'):
-            return self.image.url
-        return None
+        return self.image
 
     def img_show(self):  # receives the instance as an argument
         return mark_safe('<img src="{thumb}" width="200" height="150" />'.format(
-            thumb=self.image.url,
+            thumb=self.image,
         ))
 
     img_show.allow_tags = True
