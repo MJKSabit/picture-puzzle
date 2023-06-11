@@ -202,3 +202,29 @@ margin-top: auto;
 #hacker-footer{
   margin-top: auto;
 }
+
+/* puzzle portions */
+#puzzle-container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+#puzzle-body{
+  flex: 1;
+}
+#puzzle-footer{
+  margin-top: auto;
+}
+
+/* registration portion */
+#registration-container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+} 
+#registration-body{
+  flex: 1;
+}
+#registration-footer{
+  margin-top: auto;
+}

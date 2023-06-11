@@ -14,6 +14,7 @@
 
     </head>
     <body class="text-center">
+        <div id="registration-container">
 
     {#    ----------------------------------------------- NAVBAR START ------------------------------------------------#}
         <div>
@@ -37,7 +38,7 @@
             </nav>
         </div>
 {#    ----------------------------------------------- NAVBAR END ------------------------------------------------#}
-        <div class="container d-flex mt-5 w-100 p-3 mx-auto flex-column">
+        <div id="registration-body" class="container d-flex mt-5 w-100 p-3 mx-auto flex-column">
 
             <main role="main" class="py-5">
                 <div class="container mt-5" style="width: 400px; max-width: 100%;">
@@ -75,7 +76,14 @@
             </main>
 
         </div>
-        {% include 'base/footer.html' %}
+        <!-- {% include 'base/footer.html' %} -->
+        <footer id="registration-footer" class="footer">
+            <div id="footer-container" class="container mt-5 py-3">
+                <p>Find out more at <a class="footer-link" href="http://buetcsefest2023.com"> &nbsp;BUET CSE Fest 2023</a></p>
+            </div>
+        </footer>
+    </div>
+
         <script src="{% static 'js/jquery-3.5.1.slim.min.js' %}"></script>
         <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     </body>
