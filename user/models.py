@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-from CSE_FEST_2022_Picture_Puzzle import settings
+from CSE_FEST_2023_Picture_Puzzle import settings
 
 
 class Participant(models.Model):

@@ -1,4 +1,4 @@
-"""CSE_FEST_2022_Picture_Puzzle URL Configuration
+"""CSE_FEST_2023_Picture_Puzzle URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('cse_fest_22_admin/', admin.site.urls),
+    path('fest_admin/', admin.site.urls),
     path('', include('user.urls')),
     path('', include('contest_arena.urls')),
     path('', include('shomobay_shomiti_detector.urls')),

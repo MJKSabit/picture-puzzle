@@ -1,5 +1,5 @@
 """
-ASGI config for CSE_FEST_2022_Picture_Puzzle project.
+ASGI config for CSE_FEST_2023_Picture_Puzzle project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'CSE_FEST_2022_Picture_Puzzle.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'CSE_FEST_2023_Picture_Puzzle.settings')
 
 application = get_asgi_application()
