@@ -3,7 +3,7 @@
 a,
 a:focus,
 a:hover {
-  color: rgb(30, 0, 54);
+  color: rgb(165, 165, 165);
 }
 
 html,
@@ -19,7 +19,8 @@ body::-webkit-scrollbar {
 }
 
 .my-navbar {
-  background-color: #1C8957;
+  background-color: #150c25;
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
   font-size: large;
 }
 
@@ -39,7 +40,83 @@ body::-webkit-scrollbar {
   background-color: rgba(28, 137, 87, 0.7)!important;
 }
 
+/* new modifications */
+.footer{
+  background-color: #150c25;
+}
+ /* modifications end  */
 .footer > .container {
   padding-right: 15px;
   padding-left: 15px;
+  color: white;
 }
+.footer-link{
+  color: wheat;
+  text-decoration: none;
+}
+
+/* new modifications are all here */
+#main-body{
+  height: 100vh;
+  width: 100vw;
+}
+.bg-logo-section{
+  height: 100vh;
+  width: 100vw;
+  background-color: #f5f5f5;
+}
+#navbarCollapse{
+  width: 100vw;
+}
+.main-body-footer{
+
+}
+#navbar-title{
+  font-weight: 800;
+  color: rgb(255, 255, 255);
+}
+#nav-links{
+  color: rgb(255, 255, 255);
+  transition: color 0.2s ease-out;
+}
+#nav-links:hover{
+  color: rgb(109, 108, 108);
+}
+#full-logo{
+  width: 60%;
+  height: 40%;
+  /* background-color: red; */
+}
+.gradient-text{
+  background: linear-gradient(to right top, rgb(115,53,139), rgb(241,196,15),rgb(241,196,15));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* .typewriter-effect{
+  font-size: 30px; 
+  color: #f9d566;
+  width: 0;
+  overflow: hidden;
+  white-space: no-wrap;
+  display:block;
+  border-right: 3px solid #f9d566;
+  animation: typewriter 5s steps(7) infinite, blinking-cursor 0.8s infinite;
+  animation-fill-mode: forwards
+}  */
+
+
+/* @keyframes typewriter {
+  0% { width:0 }
+  25% { width: 70% }
+  48% { width: 100% }
+  50% { width: 100% }
+  55% { width: 100% }
+  75% { width: 70%; }
+  85% { width: 30%; }
+  100% { width: 0; }
+}
+
+@keyframes blinking-cursor {
+  from { border-color: transparent }
+  to { border-color: #f9d566 }
+} */
