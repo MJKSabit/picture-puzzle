@@ -13,6 +13,7 @@ body {
   font-family: 'Inter', sans-serif;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  margin: 0;
 }
 body::-webkit-scrollbar {
   display: none;
@@ -26,8 +27,8 @@ body::-webkit-scrollbar {
 
 .mybutton {
   color: white;
-  background-color: #1C8957;
-  border-color: #0f6652;
+  background-color: rgb(46,134,193);
+  border-color: rgb(28, 91, 132);
 }
 
 .mybutton:hover {
@@ -37,7 +38,7 @@ body::-webkit-scrollbar {
 
 
 .my-table-head {
-  background-color: rgba(28, 137, 87, 0.7)!important;
+  background-color: rgb(46,134,193)!important;
 }
 
 /* new modifications */
@@ -83,8 +84,8 @@ body::-webkit-scrollbar {
   color: rgb(109, 108, 108);
 }
 #full-logo{
-  width: 65%;
-  height: 65%;
+  width: 55%;
+  height: 75%;
   /* background-color: red; */
 }
 @media screen and (max-width: 520px) {
@@ -136,3 +137,37 @@ body::-webkit-scrollbar {
   from { border-color: transparent }
   to { border-color: #f9d566 }
 } */
+
+/* leaderboard portion */
+
+#leaderboard-body{
+  /* background-color: red; */
+}
+.leaderboard-body-container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+#leaderboard-table-section{
+  background-color: #f5f5f5;
+  flex: 1;
+  min-height: 80%;
+}
+#leaderboard-footer{
+  margin-top: auto;
+}
+
+/* login portion */
+#login-body{
+  /* background-color: red; */
+  min-height: 70%;
+}
+#login-container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+#login-footer{
+margin-top: auto;
+}
