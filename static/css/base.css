@@ -84,16 +84,21 @@ body::-webkit-scrollbar {
   color: rgb(109, 108, 108);
 }
 #full-logo{
-  width: 55%;
-  height: 75%;
+  width: 52%;
+  height: 82%;
   /* background-color: red; */
 }
 @media screen and (max-width: 520px) {
   #full-logo {
     width: 100%;
-    height: 70%;
+    height: 72%;
   }
 }
+/* @media screen and (min-width:1000px) and (max-width: 1200px) {
+  .full-logo {
+    transform: translate(-20% -20%);
+  }
+} */
 #main-logo-section{
   width: 100vh;
   height: 100vw;
