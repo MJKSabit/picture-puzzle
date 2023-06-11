@@ -13,6 +13,7 @@
     </head>
 
     <body class="text-center">
+        <div id="hacker-container">
     {#    ----------------------------------------------- NAVBAR START ------------------------------------------------#}
         <div>
             <nav class="navbar navbar-expand-lg navbar-dark fixed-top my-navbar">
@@ -42,7 +43,7 @@
         </div>
 {#    ----------------------------------------------- NAVBAR END ------------------------------------------------#}
 
-        <div class="container d-flex mt-5 w-100 p-3 mx-auto flex-column">
+        <div id="hacker-body" class="container d-flex mt-5 w-100 p-3 mx-auto flex-column">
             <main role="main" class="py-5">
                 <h1 class="mt-5">{{ random_quote }}</h1>
                 {% if random_image %}
@@ -53,7 +54,14 @@
                 {% endif %}
             </main>
         </div>
-        {% include 'base/footer.html' %}
+        <!-- {% include 'base/footer.html' %} -->
+        <footer id="hacker-footer" class="footer">
+            <div id="footer-container" class="container mt-5 py-3">
+                <p>Find out more at <a class="footer-link" href="http://buetcsefest2023.com"> &nbsp;BUET CSE Fest 2023</a></p>
+            </div>
+        </footer>
+    </div>
+
         <script src="{% static 'js/jquery-3.5.1.slim.min.js' %}"></script>
         <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     </body>
