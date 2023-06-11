@@ -33,7 +33,7 @@ body::-webkit-scrollbar {
 
 .mybutton:hover {
   color: white;
-  background-color: #16563e;
+  background-color: rgb(14, 90, 140);
 }
 
 
@@ -175,4 +175,17 @@ body::-webkit-scrollbar {
 }
 #login-footer{
 margin-top: auto;
+}
+
+/* footer portion */
+#banned-container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+#banned-body{
+  flex: 1;
+}
+#banned-footer{
+  margin-top: auto;
 }
