@@ -19,7 +19,7 @@ body::-webkit-scrollbar {
 }
 
 .my-navbar {
-  background-color: #150c25;
+  background-color: rgb(46,134,193);
   filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
   font-size: large;
 }
@@ -42,7 +42,7 @@ body::-webkit-scrollbar {
 
 /* new modifications */
 .footer{
-  background-color: #150c25;
+  background-color: rgb(46,134,193);
 }
  /* modifications end  */
 .footer > .container {
@@ -59,17 +59,17 @@ body::-webkit-scrollbar {
 #main-body{
   height: 100vh;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
+  /* justify-content:space-between; */
 }
-.bg-logo-section{
+/* .bg-logo-section{
   height: 100vh;
   width: 100vw;
   background-color: #f5f5f5;
-}
+} */
 #navbarCollapse{
   width: 100vw;
-}
-.main-body-footer{
-
 }
 #navbar-title{
   font-weight: 800;
@@ -83,9 +83,25 @@ body::-webkit-scrollbar {
   color: rgb(109, 108, 108);
 }
 #full-logo{
-  width: 60%;
-  height: 40%;
+  width: 65%;
+  height: 65%;
   /* background-color: red; */
+}
+@media screen and (max-width: 520px) {
+  #full-logo {
+    width: 100%;
+    height: 70%;
+  }
+}
+#main-logo-section{
+  width: 100vh;
+  height: 100vw;
+  /* background-color: transparent; */
+  background-color: #f5f5f5;
+  flex: 1;
+}
+#main-logo{
+  /* background-color:green; */
 }
 .gradient-text{
   background: linear-gradient(to right top, rgb(115,53,139), rgb(241,196,15),rgb(241,196,15));
