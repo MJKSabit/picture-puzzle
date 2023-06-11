@@ -8,12 +8,17 @@ section {
 
 section #bg-full-logo {
     pointer-events: none;
+    /* object-fit is new */
+    object-fit: contain;
     width: 100%;
-    height: auto;
-    max-width: 100vh;
+
+    /* new */
+    height: 100%;
+    
+    max-width: 100vw;
     max-height: 100vh;
     margin: auto;
     position: absolute;
-    top: 0;
+    top:0;
     opacity: 10%;
 }

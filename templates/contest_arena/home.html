@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Home | BUET CSE FEST 2022 Picture Puzzle</title>
+        <title>Home | BUET CSE FEST 2023 Picture Puzzle</title>
 
         <link rel="icon" href="{% static 'images/favicon.png' %}">
 {#        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">#}
@@ -13,56 +13,54 @@
         <link href="{% static 'css/home.css' %}" rel="stylesheet">
     </head>
 
-    <body class="text-center">
-        <section>
-            <img src="{% static 'images/full_logo.png' %}" id="bg-full-logo" alt="logo">
-        </section>
+    <body id="main-body" class="text-center">
+        <!-- this is the div that contains the body and footer by flex column -->
     {#    ----------------------------------------------- NAVBAR START ------------------------------------------------#}
-        <div>
+        <!-- <div> -->
             <nav class="navbar navbar-expand-lg navbar-dark fixed-top my-navbar">
-                <a class="navbar-brand" href="{% url 'home' %}">Picture Puzzle</a>
+                <a id="navbar-title" class="navbar-brand" href="{% url 'home' %}">Picture Puzzle</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'leaderboard' %}">Leaderboard</a>
+                            <a id="nav-links" class="nav-link" href="{% url 'leaderboard' %}">Leaderboard</a>
                         </li>
                         {% if user_active %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'puzzle' user_level %}">Play</a>
+                                <a id="nav-links" class="nav-link" href="{% url 'puzzle' user_level %}">Play</a>
                             </li>
                         {% endif %}
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         {% if user_active %}
                             <li class="nav-item active">
-                                <a class="nav-link disabled px-3">Welcome, {{ user.username }}</a>
+                                <a id="nav-links" class="nav-link disabled px-3">Welcome, {{ user.username }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+                                <a id="nav-links" class="nav-link" href="{% url 'logout' %}">Log out</a>
                             </li>
                         {% else %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'login' %}">Log in</a>
+                                <a id="nav-links" class="nav-link" href="{% url 'login' %}">Log in</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'register' %}">Register</a>
+                                <a id="nav-links" class="nav-link" href="{% url 'register' %}">Register</a>
                             </li>
                         {% endif %}
                     </ul>
                 </div>
             </nav>
-        </div>
+        <!-- </div> -->
 {#    ----------------------------------------------- NAVBAR END ------------------------------------------------#}
-        <div class="container d-flex mt-5 w-100 p-3 mx-auto flex-column">
+        <div id="main-logo-section" class=" d-flex mt-5 w-100 p-3 mx-auto flex-column">
 
-            <main role="main" class="py-5">
-                <img src="{% static 'images/full_logo.png' %}" id="full-logo" style="max-width: 180px; max-height: 180px;" alt="logo">
-                <h1 class="mt-4" id="header1"><span style="font-weight: 800;">BUET CSE FEST 2022</span></h1>
-                <h2 id="header2"><span>Picture Puzzle</span></h2>
-                <p id="para"><span>Sign up and have fun!</span></p>
+            <main id="main-logo" role="main" class="py-5">
+                <img src="{% static 'images/Asset_4-removebg.png' %}" id="full-logo" alt="logo">
+                <!-- <h1 class="mt-4" id="header1"><span style="font-weight: 800;">BUET CSE FEST 2022</span></h1> -->
+                <h2 id="header2"><span class="gradient-text"><span class="typewriter-effect">Picture Puzzle</span></span></h2>
+                <p id="para"><span class="gradient-text">Sign up and have fun!</span></p>
             </main>
 
         </div>
