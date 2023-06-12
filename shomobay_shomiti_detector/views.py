@@ -53,6 +53,7 @@ def HMModel(participant):
             update_list_max_weights.append(sub.participant)
 
         # print(participant, sub.participant, diff, new_weight)
+        print(f"SOMITY: {participant} <-> {sub.participant} : New {new_weight}")
 
     update_list_max_weights.append(participant)
     DetectorGraph.objects.bulk_update(update_list_weights, ['weight'])
