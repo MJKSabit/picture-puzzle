@@ -228,3 +228,12 @@ margin-top: auto;
 #registration-footer{
   margin-top: auto;
 }
+
+/* puzzle portion  */
+#puzzle-image {
+  width: 80%; 
+  max-width: 100%; 
+  min-height: 14em; 
+  max-height: 30em;
+}
+
