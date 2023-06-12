@@ -50,7 +50,7 @@ TRANSITION10 = 0.2     # +cheat(t+1)|-cheat(t)
 TRANSITION11 = 0.9     # +cheat(t+1)|+cheat(t)
 EMISSION00 = 0.6       # +time(t)|-cheat(t)
 EMISSION01 = 0.4       # -time(t)|-cheat(t)
-THRESHOLD = 0.
+THRESHOLD = 0.75
 START_PROB = 0.2
 
 LEADERBOARD_PAGE = 10
