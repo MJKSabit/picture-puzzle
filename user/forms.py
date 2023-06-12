@@ -60,16 +60,16 @@ class ParticipantForm(forms.ModelForm):
         if dept != 5:
             raise forms.ValidationError("You're not from BUET CSE Department. Sorry.")
 
-        if roll > 125:
+        if roll > 185:
             raise forms.ValidationError("This roll isn't valid.")
 
         if roll < 1:
             raise forms.ValidationError("This roll isn't valid.")
 
-        if acc_type == 1 and batch not in range(1, 17):  # need to include 90's batches
+        if acc_type == 1 and batch not in range(1, 18):  # need to include 90's batches
             raise forms.ValidationError("this is not a valid id")
 
-        if acc_type == 2 and batch not in [17, 18, 19, 20]:
+        if acc_type == 2 and batch not in [18, 19, 20, 21]:
             raise forms.ValidationError("You're not a current student, please select ALUMNI option from below.")
 
         return std_id
