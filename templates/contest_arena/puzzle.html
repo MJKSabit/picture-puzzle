@@ -94,7 +94,7 @@
                     <h2 class="mt-5">Level {{request.user.participant.curr_level}}</h2>
                     {% if puzzle.title %}<h2 class="mt-5">{{ puzzle.title }}</h2>{% endif %}
 {#                    <img class="mt-4" src="{{ puzzle.info_link }}" alt="{{puzzle.title}}" style="max-height: 400px; max-width: 400px;">#}
-                    <img class="mt-4" src="{{ puzzle.get_image }}" alt="{{puzzle.title}}" style="width: 100%; max-width: 100%; min-height: 14em; max-height: 30em;">
+                    <img id="puzzle-image" class="mt-4" src="{{ puzzle.get_image }}" alt="{{puzzle.title}}">
                     <form method="post">
                         {% csrf_token %}
                         <div class="container mt-5 mb-5" style="width: 400px; max-width: 100%;">
