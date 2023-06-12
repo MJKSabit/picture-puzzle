@@ -56,7 +56,8 @@ def view_leaderboard_page(request):
         rank_list = paginator.page(paginator.num_pages)
 
     for p in rank_list:
-        p.participant.max_weight = max(0, p.participant.max_weight - settings.THRESHOLD) / (2*(1 - settings.THRESHOLD))
+        # p.participant.max_weight = max(0, p.participant.max_weight - settings.THRESHOLD) / (2*(1 - settings.THRESHOLD))
+        p.participant.max_weight = 0 if p.participant.max_weight < settings.THRESHOLD else (0.15 + 0.35*(p.participant.max_weight - settings.THRESHOLD) / (1 - settings.THRESHOLD))
 
 
 

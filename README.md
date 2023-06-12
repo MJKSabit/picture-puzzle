@@ -10,8 +10,8 @@ COLLATE collation_name
 ```
 
 
-## Picture Puzzle: BUET CSE FEST 2022  
-This repository contains the source code of Picture Puzzle Website for BUET CSE FEST 2022.  
+## Picture Puzzle: BUET CSE FEST 2023  
+This repository contains the source code of Picture Puzzle Website for BUET CSE FEST 2023.  
   
 ## Project Configuration  
 Create a `.env` file in the base directory. Add the mentioned variables in the file  
